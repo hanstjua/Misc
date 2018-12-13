@@ -38,11 +38,7 @@ a_notes += np.cos(2 * np.pi * a_freq*2.5 * t) * 0.260
 a_notes += np.sin(2 * np.pi * a_freq*3 * t) * 0.095
 a_notes += np.sin(2 * np.pi * a_freq*3.5 * t) * 0.080
 
-plt.plot(a_notes[:400])
-
-plt.show()
-
-audio  = 2**15 / np.max(abs(a_notes)) * (a_notes * adsr)
+audio  = (2**15-1) / np.max(abs(a_notes)) * (a_notes * adsr)
 
 plt.plot(audio)
 
